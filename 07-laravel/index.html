@@ -1,0 +1,1113 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.6">
+    
+    
+      
+        <title>Laravel - PHP Testing Guidelines</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6910b76c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.196e0c26.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#laravel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="PHP Testing Guidelines" class="md-header-nav__button md-logo" aria-label="PHP Testing Guidelines">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            PHP Testing Guidelines
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Laravel
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PHP Testing Guidelines" class="md-nav__button md-logo" aria-label="PHP Testing Guidelines">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    PHP Testing Guidelines
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Giới thiệu
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../01-why/" class="md-nav__link">
+      Viết test để làm gì?
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../02-testcase/" class="md-nav__link">
+      Cơ bản về test case
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../03-phpunit/" class="md-nav__link">
+      PHPUnit
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../04-code-coverage/" class="md-nav__link">
+      Code Coverage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../05-test-doubles-and-di/" class="md-nav__link">
+      Test Doubles và DI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../06-mutation-testing/" class="md-nav__link">
+      Mutation Testing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Laravel
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Laravel
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conventions" class="md-nav__link">
+    Conventions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-accessors-and-mutators" class="md-nav__link">
+    Test accessors and mutators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-scopes" class="md-nav__link">
+    Test scopes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-relationships" class="md-nav__link">
+    Test relationships
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-custom-methods" class="md-nav__link">
+    Test custom methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-test-cho-viec-thiet-lap-fillable-hidden-casts" class="md-nav__link">
+    Integration test cho việc thiết lập fillable, hidden, casts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-form-request" class="md-nav__link">
+    Test Form request
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-controller" class="md-nav__link">
+    Test Controller
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../08-checklist/" class="md-nav__link">
+      Checklist
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../09-references/" class="md-nav__link">
+      Tài liệu khác
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" >
+    <label class="md-nav__link" for="nav-11">
+      En
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="En" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon"></span>
+        En
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../en/Conventions/" class="md-nav__link">
+      Laravel Testing Conventions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../en/Introduction/" class="md-nav__link">
+      Introduction to Laravel Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../en/Knowledge/" class="md-nav__link">
+      Knowledge about Unit Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-4" type="checkbox" id="nav-11-4" >
+    <label class="md-nav__link" for="nav-11-4">
+      Integration
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Integration" data-md-level="2">
+      <label class="md-nav__title" for="nav-11-4">
+        <span class="md-nav__icon md-icon"></span>
+        Integration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../en/Integration/Integration/" class="md-nav__link">
+      Integration Tests
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-5" type="checkbox" id="nav-11-5" >
+    <label class="md-nav__link" for="nav-11-5">
+      Unit
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Unit" data-md-level="2">
+      <label class="md-nav__title" for="nav-11-5">
+        <span class="md-nav__icon md-icon"></span>
+        Unit
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../en/Unit/Common/" class="md-nav__link">
+      Common Testing Rules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../en/Unit/Controllers/" class="md-nav__link">
+      Testing Controllers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../en/Unit/Middleware/" class="md-nav__link">
+      Testing Middleware Classes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../en/Unit/Models/" class="md-nav__link">
+      Testing Models
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../en/Unit/Transformers/" class="md-nav__link">
+      Testing Transformers and Presenters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../en/Unit/Validation/" class="md-nav__link">
+      Testing Validation Rules.
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" >
+    <label class="md-nav__link" for="nav-12">
+      Vn
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Vn" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon"></span>
+        Vn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vn/Conventions/" class="md-nav__link">
+      Laravel Testing Conventions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vn/Introduction/" class="md-nav__link">
+      Giới thiệu về Laravel Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vn/Knowledge/" class="md-nav__link">
+      Knowledge about Unit Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-4" type="checkbox" id="nav-12-4" >
+    <label class="md-nav__link" for="nav-12-4">
+      Integration
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Integration" data-md-level="2">
+      <label class="md-nav__title" for="nav-12-4">
+        <span class="md-nav__icon md-icon"></span>
+        Integration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vn/Integration/Integration/" class="md-nav__link">
+      Integration Tests
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-5" type="checkbox" id="nav-12-5" >
+    <label class="md-nav__link" for="nav-12-5">
+      Unit
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Unit" data-md-level="2">
+      <label class="md-nav__title" for="nav-12-5">
+        <span class="md-nav__icon md-icon"></span>
+        Unit
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vn/Unit/Common/" class="md-nav__link">
+      Common Testing Rules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vn/Unit/Controllers/" class="md-nav__link">
+      Testing Controllers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vn/Unit/Middleware/" class="md-nav__link">
+      Testing Middleware Classes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vn/Unit/Models/" class="md-nav__link">
+      Testing Models
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vn/Unit/Transformers/" class="md-nav__link">
+      Testing Transformers and Presenters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vn/Unit/Validation/" class="md-nav__link">
+      Testing Validation Rules.
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conventions" class="md-nav__link">
+    Conventions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-accessors-and-mutators" class="md-nav__link">
+    Test accessors and mutators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-scopes" class="md-nav__link">
+    Test scopes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-relationships" class="md-nav__link">
+    Test relationships
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-custom-methods" class="md-nav__link">
+    Test custom methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-test-cho-viec-thiet-lap-fillable-hidden-casts" class="md-nav__link">
+    Integration test cho việc thiết lập fillable, hidden, casts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-form-request" class="md-nav__link">
+    Test Form request
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-controller" class="md-nav__link">
+    Test Controller
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="laravel">Laravel<a class="headerlink" href="#laravel" title="Permanent link">&para;</a></h1>
+<h2 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Cấu trúc thư mục<ul>
+<li>Tất cả Unit Tests được đặt trong thư mục <code>tests/Unit</code> (xem config testsuite trong <code>phpunit.xml</code>)</li>
+<li>Tất cả Integration Tests được đặt trong thư mục <code>tests/Integration</code></li>
+<li>Nội dung bên trong thư mục <code>Unit</code> có cấu trúc giống với cấu trúc bên trong thư mục <code>app</code>. Ví dụ như Unit Test cho file <code>app/Models/User.php</code> tương ứng là <code>tests/Unit/Models/UserTest.php</code></li>
+</ul>
+</li>
+<li>Quy tắc đặt tên<ul>
+<li>Thường có namespace bắt đầu với <code>Tests\</code> (xem phần <code>autoload-dev</code> trong composer.json)</li>
+<li>Method test phải được bắt đầu bằng <code>test</code>, viết dạng <code>camelCase</code> hay <code>snake_case</code> đều được, không phải quá lo lắng về tên method test quá dài, nhưng nên chọn 1 trong hai cho thống nhất, prefer <code>snake_case</code> để cho dễ đọc hơn:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%; margin: 0;"><span></span><code><span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">test_it_throws_an_exception_when_email_is_too_long</span><span style="color: #888888">()</span>
+<span style="color: #888888">{</span>
+<span style="color: #888888">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="model">Model<a class="headerlink" href="#model" title="Permanent link">&para;</a></h2>
+<h3 id="test-accessors-and-mutators">Test accessors and mutators<a class="headerlink" href="#test-accessors-and-mutators" title="Permanent link">&para;</a></h3>
+<p>VD:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%; margin: 0;"><span></span><code><span style="color: #2838b0">class</span> <span style="color: #287088">User</span> <span style="color: #2838b0">extends</span> Model
+<span style="color: #888888">{</span>
+    <span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">setPasswordAttribute</span><span style="color: #888888">(</span><span style="color: #b04040">$password</span><span style="color: #888888">)</span>
+    <span style="color: #888888">{</span>
+        <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">attributes</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;password&#39;</span><span style="color: #888888">]</span> <span style="color: #666666">=</span> Hash<span style="color: #666666">::</span><span style="color: #388038">make</span><span style="color: #888888">(</span><span style="color: #b04040">$password</span><span style="color: #888888">);</span>
+    <span style="color: #888888">}</span>
+<span style="color: #888888">}</span>
+
+<span style="color: #2838b0">class</span> <span style="color: #287088">UserTest</span> <span style="color: #2838b0">extends</span> TestCase
+<span style="color: #888888">{</span>
+    <span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">testHashesPasswordWhenSet</span><span style="color: #888888">()</span>
+    <span style="color: #888888">{</span>
+        Hash<span style="color: #666666">::</span><span style="color: #388038">shouldReceive</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;make&#39;</span><span style="color: #888888">)</span><span style="color: #666666">-&gt;</span><span style="color: #388038">once</span><span style="color: #888888">()</span><span style="color: #666666">-&gt;</span><span style="color: #388038">andReturn</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;hashed&#39;</span><span style="color: #888888">);</span>
+
+        <span style="color: #b04040">$author</span> <span style="color: #666666">=</span> <span style="color: #2838b0">new</span> User<span style="color: #888888">;</span>
+        <span style="color: #b04040">$author</span><span style="color: #666666">-&gt;</span><span style="color: #388038">password</span> <span style="color: #666666">=</span> <span style="color: #b83838">&#39;foo&#39;</span><span style="color: #888888">;</span>
+
+        <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertEquals</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;hashed&#39;</span><span style="color: #888888">,</span> <span style="color: #b04040">$author</span><span style="color: #666666">-&gt;</span><span style="color: #388038">password</span><span style="color: #888888">);</span>
+    <span style="color: #888888">}</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<p>Ở đây method <code>Hash::make()</code> được mock, có thể hiểu như sau: Tôi mong muốn <code>make()</code> method của class <code>Hash</code> được gọi 1 lần và khi được gọi nó trả về giá trị stub là <code>hashed</code> nhằm mục đích để biết chính xác kết quả trả về và assert với kết quả thực tế của method <code>setPasswordAttribute</code>.</p>
+<h3 id="test-scopes">Test scopes<a class="headerlink" href="#test-scopes" title="Permanent link">&para;</a></h3>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%; margin: 0;"><span></span><code><span style="color: #2838b0">class</span> <span style="color: #287088">User</span> <span style="color: #2838b0">extends</span> Model
+<span style="color: #888888">{</span>
+    <span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">scopeOldest</span><span style="color: #888888">(</span><span style="color: #b04040">$query</span><span style="color: #888888">)</span>
+    <span style="color: #888888">{</span>
+        <span style="color: #2838b0">return</span> <span style="color: #b04040">$query</span><span style="color: #666666">-&gt;</span><span style="color: #388038">orderBy</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;age&#39;</span><span style="color: #888888">,</span> <span style="color: #b83838">&#39;desc&#39;</span><span style="color: #888888">);</span>
+    <span style="color: #888888">}</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<p>Mr. JeffreyWay có đưa ra một <a href="https://gist.github.com/JeffreyWay/5674014">thảo luận</a>, và đưa ra một vài khả năng:</p>
+<ol>
+<li>Không cần test method này?</li>
+<li>Thực hiện integration test với test database, bằng cách insert một vài record vào db, gọi method và assert method trả về correct row.</li>
+<li>Partial mock class User và verify method <code>orderBy</code> được gọi.</li>
+</ol>
+<p>Hầu hết các ý đều đồng tình với cách thứ 2, vì:</p>
+<ul>
+<li>Chỉ đơn giản chúng ta đang sử dụng các unit của Eloquent/QueryBuilder mà không có logic gì phức tạp</li>
+<li>Eloquent và QueryBuilder đều đã được test ở mức độ unit test để kiểm chứng tính đúng đắn khi chạy độc lập</li>
+<li>Nếu thực mock, chúng ta sẽ expect method <code>orderBy</code> được gọi với 2 tham số <code>age</code> và <code>desc</code> nhưng làm sao để biết <code>age</code> có đúng là 1 trường trong database?</li>
+</ul>
+<p>Vì thế, integration test là cách hợp lý nhất ở đây:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%; margin: 0;"><span></span><code><span style="color: #2838b0">class</span> <span style="color: #287088">UserTest</span> <span style="color: #2838b0">extends</span> TestCase
+<span style="color: #888888">{</span>
+    <span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">testGetsOldestUser</span><span style="color: #888888">()</span>
+    <span style="color: #888888">{</span>
+        <span style="color: #888888; font-style: italic">// Arrange: Insert two test rows into a test DB</span>
+        Factory<span style="color: #666666">::</span><span style="color: #388038">create</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;User&#39;</span><span style="color: #888888">,</span> <span style="color: #888888">[</span><span style="color: #b83838">&#39;age&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #444444">20</span><span style="color: #888888">]);</span>
+        Factory<span style="color: #666666">::</span><span style="color: #388038">create</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;User&#39;</span><span style="color: #888888">,</span> <span style="color: #888888">[</span><span style="color: #b83838">&#39;age&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #444444">30</span><span style="color: #888888">]);</span>
+
+        <span style="color: #888888; font-style: italic">// Act: call the method</span>
+        <span style="color: #b04040">$oldest</span> <span style="color: #666666">=</span> User<span style="color: #666666">::</span><span style="color: #388038">oldest</span><span style="color: #888888">()</span><span style="color: #666666">-&gt;</span><span style="color: #388038">first</span><span style="color: #888888">();</span>
+
+        <span style="color: #888888; font-style: italic">// Assert</span>
+        <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertEquals</span><span style="color: #888888">(</span><span style="color: #444444">30</span><span style="color: #888888">,</span> <span style="color: #b04040">$oldest</span><span style="color: #666666">-&gt;</span><span style="color: #388038">age</span><span style="color: #888888">);</span>
+    <span style="color: #888888">}</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<h3 id="test-relationships">Test relationships<a class="headerlink" href="#test-relationships" title="Permanent link">&para;</a></h3>
+<p>Thực hiện assert kết quả của các relation thuộc class tương ứng:</p>
+<ul>
+<li><code>HasMany</code></li>
+<li><code>BelongsTo</code></li>
+<li><code>BelongsToMany</code></li>
+<li>...</li>
+</ul>
+<h3 id="test-custom-methods">Test custom methods<a class="headerlink" href="#test-custom-methods" title="Permanent link">&para;</a></h3>
+<p>VD1:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%; margin: 0;"><span></span><code><span style="color: #2838b0">class</span> <span style="color: #287088">User</span> <span style="color: #2838b0">extends</span> Model
+<span style="color: #888888">{</span>
+    <span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">fullname</span><span style="color: #888888">()</span>
+    <span style="color: #888888">{</span>
+        <span style="color: #2838b0">return</span> <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">firstname</span> <span style="color: #666666">.</span> <span style="color: #b83838">&#39; - &#39;</span> <span style="color: #666666">.</span> <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">lastname</span><span style="color: #888888">;</span>
+    <span style="color: #888888">}</span>
+<span style="color: #888888">}</span>
+
+<span style="color: #2838b0">class</span> <span style="color: #287088">UserTest</span> <span style="color: #2838b0">extends</span> TestCase
+<span style="color: #888888">{</span>
+    <span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">testGetFullName</span><span style="color: #888888">()</span>
+    <span style="color: #888888">{</span>
+        <span style="color: #b04040">$user</span> <span style="color: #666666">=</span> <span style="color: #2838b0">new</span> User<span style="color: #888888">;</span>
+        <span style="color: #b04040">$user</span><span style="color: #666666">-&gt;</span><span style="color: #388038">firstname</span> <span style="color: #666666">=</span> <span style="color: #b83838">&#39;Edogawa&#39;</span><span style="color: #888888">;</span>
+        <span style="color: #b04040">$user</span><span style="color: #666666">-&gt;</span><span style="color: #388038">lastname</span> <span style="color: #666666">=</span> <span style="color: #b83838">&#39;Conan&#39;</span><span style="color: #888888">;</span>
+
+        <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertEquals</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;Edogawa Conan&#39;</span><span style="color: #888888">,</span> <span style="color: #b04040">$user</span><span style="color: #666666">-&gt;</span><span style="color: #388038">fullname</span><span style="color: #888888">());</span>
+    <span style="color: #888888">}</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<h3 id="integration-test-cho-viec-thiet-lap-fillable-hidden-casts">Integration test cho việc thiết lập <code>fillable</code>, <code>hidden</code>, <code>casts</code><a class="headerlink" href="#integration-test-cho-viec-thiet-lap-fillable-hidden-casts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Unit test đã được framework thực hiện</li>
+<li>Tương tự khi test scope, chúng ta thực hiện integration test để đảm bảo các field được mapping chính xác với DB schema</li>
+</ul>
+<h2 id="test-form-request">Test Form request<a class="headerlink" href="#test-form-request" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Không thực hiện unit test nếu form request chỉ khai báo <code>rules()</code> và không có logic gì đặc biệt? Vì việc test các rule validation đã được Laravel thực hiện trong core framework, chúng ta chỉ khai báo sử dụng nó!</li>
+<li>Một cách khác để thực hiện unit test đó là tự validate FormRequest thông qua <code>Validator::make()</code>, tuy nhiên nên nhớ là FormRequest có thể override lại method <code>getValidatorInstance()</code> để thực hiện một số logic khác. VD chi tiết tại đây: https://gist.github.com/tuanpht/37394e0df10d48d08d0d406c9a7dd477</li>
+<li>Thay vào đó chúng ta thực hiện integration test khi test controller, vì mục đích của class form request thường chỉ để tách phần khai báo rule ra khỏi controller, nên cần test tích hợp để nó có hoạt động như mong muốn khi kết hợp với controller hay không, response khi validate failed là gì...</li>
+</ul>
+<h2 id="test-controller">Test Controller<a class="headerlink" href="#test-controller" title="Permanent link">&para;</a></h2>
+<p>Nhắc lại về nhiệm vụ của Controller:</p>
+<ul>
+<li>Điều hướng HTTP request</li>
+<li>Gọi đến domain object để thực hiện logic và lấy kết quả trả về (Fat Model - Skinny Controller, không sử dụng trực tiếp Eloquent Model mà sẽ có 1 tầng trung gian (repository, service))</li>
+<li>Ngoài ra các action như thêm/sửa thường sử dụng thêm FormRequest</li>
+</ul>
+<p>Cần test những gì:</p>
+<ul>
+<li>Request có thành công không?</li>
+<li>User có được redirect đến đúng page không?</li>
+<li>Message có hiển thị đúng cho user không?</li>
+<li>Có trả về view đúng không và các biến có được trả về cho view không?</li>
+<li>Nếu là api thì format trả về có đúng không?</li>
+</ul>
+<p>Thực hiện test:</p>
+<ul>
+<li>Do ta đã tách logic DB sử dụng repository (service) nên integration test controller có thể mock repository và thực hiện test repository integrate với DB riêng biệt</li>
+<li>Thực hiện test tích hợp với FormRequest, tạo ra các input mẫu và test các trường hợp input đúng, input sai, assert response tương ứng với từng trường hợp</li>
+<li>
+<p>Có thể sử dụng SQLite in-memory database khi thực hiện integration test thay vì MySQL để cải thiện hiệu năng và tăng tốc quá trình test. Tuy nhiên có một chú ý là database migration hay database seed phải được chạy trong quá trình test chứ không thể chạy trước khi chạy test. Khi đó chúng ta sử dụng trait <code>RefreshDatabase</code> để vừa refresh database sau mỗi test case. Còn khi sử dụng database test là MySQL thì thực hiện migration trước khi và sử dụng <code>DatabaseTransactions</code> thay vì phải chạy lại migration trong mỗi test case.</p>
+<p>Có thể tạo 1 trait chung cho test DB:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%; margin: 0;"><span></span><code><span style="color: #2838b0">trait</span> SetupDatabaseTrait
+<span style="color: #888888">{</span>
+    <span style="color: #2838b0">use</span> RefreshDatabase<span style="color: #888888">;</span> <span style="color: #888888; font-style: italic">// For SQLite in memory</span>
+    <span style="color: #888888; font-style: italic">// use DatabaseTransactions; // For other DB connections</span>
+<span style="color: #888888">}</span>
+
+<span style="color: #2838b0">class</span> <span style="color: #287088">NewsApiTest</span> <span style="color: #2838b0">extends</span> TestCase
+<span style="color: #888888">{</span>
+    <span style="color: #2838b0">use</span> SetupDatabaseTrait<span style="color: #888888">;</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<p>Khi muốn chuyển đổi database test giữa MySQL và SQLite thì chỉ cần sửa lại trong trait <code>SetupDatabaseTrait</code>.</p>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../06-mutation-testing/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Mutation Testing
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../08-checklist/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Checklist
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.fd16492e.min.js"></script>
+      <script src="../assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,961 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.6">
+    
+    
+      
+        <title>Testing Validation Rules. - PHP Testing Guidelines</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6910b76c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.196e0c26.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#testing-validation-rules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="PHP Testing Guidelines" class="md-header-nav__button md-logo" aria-label="PHP Testing Guidelines">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            PHP Testing Guidelines
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Testing Validation Rules.
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="PHP Testing Guidelines" class="md-nav__button md-logo" aria-label="PHP Testing Guidelines">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    PHP Testing Guidelines
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." class="md-nav__link">
+      Giới thiệu
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../01-why/" class="md-nav__link">
+      Viết test để làm gì?
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../02-testcase/" class="md-nav__link">
+      Cơ bản về test case
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../03-phpunit/" class="md-nav__link">
+      PHPUnit
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../04-code-coverage/" class="md-nav__link">
+      Code Coverage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../05-test-doubles-and-di/" class="md-nav__link">
+      Test Doubles và DI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../06-mutation-testing/" class="md-nav__link">
+      Mutation Testing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../07-laravel/" class="md-nav__link">
+      Laravel
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../08-checklist/" class="md-nav__link">
+      Checklist
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../09-references/" class="md-nav__link">
+      Tài liệu khác
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" >
+    <label class="md-nav__link" for="nav-11">
+      En
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="En" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon"></span>
+        En
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/Conventions/" class="md-nav__link">
+      Laravel Testing Conventions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/Introduction/" class="md-nav__link">
+      Introduction to Laravel Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/Knowledge/" class="md-nav__link">
+      Knowledge about Unit Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-4" type="checkbox" id="nav-11-4" >
+    <label class="md-nav__link" for="nav-11-4">
+      Integration
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Integration" data-md-level="2">
+      <label class="md-nav__title" for="nav-11-4">
+        <span class="md-nav__icon md-icon"></span>
+        Integration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/Integration/Integration/" class="md-nav__link">
+      Integration Tests
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-5" type="checkbox" id="nav-11-5" >
+    <label class="md-nav__link" for="nav-11-5">
+      Unit
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Unit" data-md-level="2">
+      <label class="md-nav__title" for="nav-11-5">
+        <span class="md-nav__icon md-icon"></span>
+        Unit
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/Unit/Common/" class="md-nav__link">
+      Common Testing Rules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/Unit/Controllers/" class="md-nav__link">
+      Testing Controllers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/Unit/Middleware/" class="md-nav__link">
+      Testing Middleware Classes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/Unit/Models/" class="md-nav__link">
+      Testing Models
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/Unit/Transformers/" class="md-nav__link">
+      Testing Transformers and Presenters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/Unit/Validation/" class="md-nav__link">
+      Testing Validation Rules.
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" checked>
+    <label class="md-nav__link" for="nav-12">
+      Vn
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Vn" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon"></span>
+        Vn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Conventions/" class="md-nav__link">
+      Laravel Testing Conventions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Introduction/" class="md-nav__link">
+      Giới thiệu về Laravel Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Knowledge/" class="md-nav__link">
+      Knowledge about Unit Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-4" type="checkbox" id="nav-12-4" >
+    <label class="md-nav__link" for="nav-12-4">
+      Integration
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Integration" data-md-level="2">
+      <label class="md-nav__title" for="nav-12-4">
+        <span class="md-nav__icon md-icon"></span>
+        Integration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Integration/Integration/" class="md-nav__link">
+      Integration Tests
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-5" type="checkbox" id="nav-12-5" checked>
+    <label class="md-nav__link" for="nav-12-5">
+      Unit
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Unit" data-md-level="2">
+      <label class="md-nav__title" for="nav-12-5">
+        <span class="md-nav__icon md-icon"></span>
+        Unit
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Common/" class="md-nav__link">
+      Common Testing Rules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Controllers/" class="md-nav__link">
+      Testing Controllers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Middleware/" class="md-nav__link">
+      Testing Middleware Classes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Models/" class="md-nav__link">
+      Testing Models
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Transformers/" class="md-nav__link">
+      Testing Transformers and Presenters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Testing Validation Rules.
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Testing Validation Rules.
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#guide" class="md-nav__link">
+    Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-validation-rules_1" class="md-nav__link">
+    Testing validation rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-abnormal-data" class="md-nav__link">
+    Testing abnormal data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-custom-validation-rules" class="md-nav__link">
+    Testing custom validation rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#guide" class="md-nav__link">
+    Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-validation-rules_1" class="md-nav__link">
+    Testing validation rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-abnormal-data" class="md-nav__link">
+    Testing abnormal data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-custom-validation-rules" class="md-nav__link">
+    Testing custom validation rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="testing-validation-rules">Testing Validation Rules.<a class="headerlink" href="#testing-validation-rules" title="Permanent link">&para;</a></h1>
+<p>Có 2 cách thực hiện việc test với Validation Rules:</p>
+<ol>
+<li>Kiểm tra xem những rules cần thiết đã được set hay chưa</li>
+<li>Kiểm tra nhưng data không hợp lệ thì không thể pass qua được validation</li>
+</ol>
+<p>Trường hợp trước thì rất là đơn giản, và không yêu cầu những test cases phức tạp, trường hợp sau thì lại cần rất nhiều data để test. Những test cases mới nên được bổ sung liên tục mỗi khi có sự xuất hiện của dữ liệu không hợp lệ phát sinh trong quá trình user testing hoặc sử dụng trên production.</p>
+<h2 id="guide">Guide<a class="headerlink" href="#guide" title="Permanent link">&para;</a></h2>
+<h3 id="testing-validation-rules_1">Testing validation rules<a class="headerlink" href="#testing-validation-rules_1" title="Permanent link">&para;</a></h3>
+<p>Validation rules được set qua 2 cách thông thường: được sử dụng trong app logic (thông qua hàm <code>validate()</code> của controller, hay <code>Validator</code> facade ...) hoặc qua Form Requests.</p>
+<p>Trường hợp đầu tiên cần phải được test thông qua mocking validator instance, và chạy test trong những class bao gồm logic.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%; margin: 0;"><span></span><code><span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">test_store_method</span><span style="color: #888888">()</span>
+<span style="color: #888888">{</span>
+    <span style="color: #b04040">$c</span> <span style="color: #666666">=</span> <span style="color: #2838b0">new</span> Controller<span style="color: #888888">();</span>
+    <span style="color: #b04040">$v</span> <span style="color: #666666">=</span> m<span style="color: #666666">::</span><span style="color: #388038">mock</span><span style="color: #888888">(</span>\Illuminate\Contracts\Validation\Factory<span style="color: #666666">::</span><span style="color: #388038">class</span><span style="color: #888888">);</span>
+
+    <span style="color: #888888; font-style: italic">// Substitute Validator instance in DI container.</span>
+    <span style="color: #b04040">$previous</span> <span style="color: #666666">=</span> <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">app</span><span style="color: #666666">-&gt;</span><span style="color: #388038">make</span><span style="color: #888888">(</span>\Illuminate\Contracts\Validation\Factory<span style="color: #666666">::</span><span style="color: #388038">class</span><span style="color: #888888">);</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">app</span><span style="color: #666666">-&gt;</span><span style="color: #388038">bind</span><span style="color: #888888">(</span>\Illuminate\Contracts\Validation\Factory<span style="color: #666666">::</span><span style="color: #388038">class</span><span style="color: #888888">,</span> <span style="color: #b04040">$v</span><span style="color: #888888">);</span>
+
+    <span style="color: #b04040">$r</span> <span style="color: #666666">=</span> <span style="color: #2838b0">new</span> Request<span style="color: #888888">();</span>
+    <span style="color: #b04040">$request</span><span style="color: #666666">-&gt;</span><span style="color: #388038">headers</span><span style="color: #666666">-&gt;</span><span style="color: #388038">set</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;content-type&#39;</span><span style="color: #888888">,</span> <span style="color: #b83838">&#39;application/json&#39;</span><span style="color: #888888">);</span>
+    <span style="color: #b04040">$data</span> <span style="color: #666666">=</span> <span style="color: #888888">[</span>
+        <span style="color: #b83838">&#39;name&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;Jonh&#39;</span><span style="color: #888888">,</span>
+        <span style="color: #b83838">&#39;email&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;jonh@example.com&#39;</span><span style="color: #888888">,</span>
+    <span style="color: #888888">];</span>
+    <span style="color: #b04040">$request</span><span style="color: #666666">-&gt;</span><span style="color: #388038">setJson</span><span style="color: #888888">(</span><span style="color: #2838b0">new</span> ParameterBag<span style="color: #888888">(</span><span style="color: #b04040">$data</span><span style="color: #888888">));</span>
+
+    <span style="color: #b04040">$v</span><span style="color: #666666">-&gt;</span><span style="color: #388038">expects</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;make&#39;</span><span style="color: #888888">)</span><span style="color: #666666">-&gt;</span><span style="color: #388038">once</span><span style="color: #888888">()</span>
+        <span style="color: #666666">-&gt;</span><span style="color: #388038">with</span><span style="color: #888888">(</span><span style="color: #b04040">$data</span><span style="color: #888888">,</span> <span style="color: #888888">[</span>
+            <span style="color: #b83838">&#39;name&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;required&#39;</span><span style="color: #888888">,</span>
+            <span style="color: #b83838">&#39;email&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;required|email&#39;</span><span style="color: #888888">,</span>
+        <span style="color: #888888">],</span> m<span style="color: #666666">::</span><span style="color: #388038">any</span><span style="color: #888888">(),</span> m<span style="color: #666666">::</span><span style="color: #388038">any</span><span style="color: #888888">())</span>
+        <span style="color: #666666">-&gt;</span><span style="color: #388038">andReturnUsing</span><span style="color: #888888">(</span><span style="color: #2838b0">function</span> <span style="color: #888888">(</span><span style="color: #666666">...</span><span style="color: #b04040">$args</span><span style="color: #888888">)</span> <span style="color: #888888">{</span> <span style="color: #2838b0">return</span> <span style="color: #b04040">$previous</span><span style="color: #666666">-&gt;</span><span style="color: #388038">make</span><span style="color: #888888">(</span><span style="color: #666666">...</span><span style="color: #b04040">$args</span><span style="color: #888888">);</span> <span style="color: #888888">});</span>
+
+    <span style="color: #b04040">$c</span><span style="color: #666666">-&gt;</span><span style="color: #388038">store</span><span style="color: #888888">(</span><span style="color: #b04040">$request</span><span style="color: #888888">);</span>
+
+    <span style="color: #888888; font-style: italic">// Additional assertions.</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<p>Trong trường hợp dùng Form Requests, mọi thứ có thể được hoàn thành dễ dàng hơn:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%; margin: 0;"><span></span><code><span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">test_it_contains_valid_rules</span><span style="color: #888888">()</span>
+<span style="color: #888888">{</span>
+    <span style="color: #b04040">$r</span> <span style="color: #666666">=</span> <span style="color: #2838b0">new</span> StoreRequest<span style="color: #888888">();</span>
+
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertEquals</span><span style="color: #888888">([</span>
+        <span style="color: #b83838">&#39;name&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;required&#39;</span><span style="color: #888888">,</span>
+        <span style="color: #b83838">&#39;email&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;required|email&#39;</span><span style="color: #888888">,</span>
+    <span style="color: #888888">],</span> <span style="color: #b04040">$r</span><span style="color: #666666">-&gt;</span><span style="color: #388038">rules</span><span style="color: #888888">());</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<h3 id="testing-abnormal-data">Testing abnormal data<a class="headerlink" href="#testing-abnormal-data" title="Permanent link">&para;</a></h3>
+<p>Việc đoán trước toàn bộ các abnormal data là hoàn toàn không thể, tuy nhiên, mỗi khi những trường hợp như thế xuất hiện, cần phải bổ sung thêm những test case mới.</p>
+<ol>
+<li>Abnormal data được phát hiện trong quá trình sử dụng application.</li>
+<li>Thêm vào những test case cho controller hay các instance khác với abnormal data để mô phỏng lỗi.</li>
+<li>Thêm vào bản fix và test case với những lỗi được dự đoán từ trước.</li>
+</ol>
+<h3 id="testing-custom-validation-rules">Testing custom validation rules<a class="headerlink" href="#testing-custom-validation-rules" title="Permanent link">&para;</a></h3>
+<p>Nếu trong application của bạn có những custom validations, bạn cần phải thêm vào những test cases cho các rules đó.</p>
+<p>Những tests này không yêu cầu kiểm tra user input, mà cần phải kiểm tra validation logic để chắc chắn rằng nó fails hoặc passes trong những trường hợp được dự báo trước.</p>
+<p>Thật không may là không có một method nào để extract extensions từ validation factory, bởi thế cần phải đọc ra protected property.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%; margin: 0;"><span></span><code><span style="color: #888888; font-style: italic">// AppServiceProvider::boot</span>
+Validator<span style="color: #666666">::</span><span style="color: #388038">extend</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;foo&#39;</span><span style="color: #888888">,</span> <span style="color: #2838b0">function</span> <span style="color: #888888">(</span><span style="color: #b04040">$attribute</span><span style="color: #888888">,</span> <span style="color: #b04040">$value</span><span style="color: #888888">,</span> <span style="color: #b04040">$parameters</span><span style="color: #888888">,</span> <span style="color: #b04040">$validator</span><span style="color: #888888">)</span> <span style="color: #888888">{</span>
+    <span style="color: #2838b0">return</span> <span style="color: #b04040">$value</span> <span style="color: #666666">==</span> <span style="color: #b83838">&#39;foo&#39;</span><span style="color: #888888">;</span>
+<span style="color: #888888">});</span>
+
+<span style="color: #888888; font-style: italic">// AppServiceProviderTest</span>
+<span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">test_validator_foo_rule</span><span style="color: #888888">()</span>
+<span style="color: #888888">{</span>
+    <span style="color: #888888; font-style: italic">// Extract extensions from validation factory.</span>
+    <span style="color: #b04040">$v</span> <span style="color: #666666">=</span> <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">app</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;validator&#39;</span><span style="color: #888888">];</span>
+    <span style="color: #b04040">$r</span> <span style="color: #666666">=</span> <span style="color: #2838b0">new</span> ReflectionClass<span style="color: #888888">(</span><span style="color: #b04040">$v</span><span style="color: #888888">);</span>
+    <span style="color: #b04040">$p</span> <span style="color: #666666">=</span> <span style="color: #b04040">$r</span><span style="color: #666666">-&gt;</span><span style="color: #388038">getProperty</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;extensions&#39;</span><span style="color: #888888">);</span>
+    <span style="color: #b04040">$p</span><span style="color: #666666">-&gt;</span><span style="color: #388038">setAccessible</span><span style="color: #888888">(</span><span style="color: #2838b0">true</span><span style="color: #888888">);</span>
+    <span style="color: #b04040">$extensions</span> <span style="color: #666666">=</span> <span style="color: #b04040">$p</span><span style="color: #666666">-&gt;</span><span style="color: #388038">getValue</span><span style="color: #888888">(</span><span style="color: #b04040">$v</span><span style="color: #888888">);</span>
+
+    <span style="color: #888888; font-style: italic">// Check if extension had been registered properly.</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertArrayHasKey</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;foo&#39;</span><span style="color: #888888">,</span> <span style="color: #b04040">$extensions</span><span style="color: #888888">);</span>
+    <span style="color: #b04040">$rule</span> <span style="color: #666666">=</span> <span style="color: #b04040">$extensions</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;foo&#39;</span><span style="color: #888888">];</span>
+
+    <span style="color: #888888; font-style: italic">// Test cases for extension.</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertTrue</span><span style="color: #888888">(</span><span style="color: #b04040">$rule</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;attr&#39;</span><span style="color: #888888">,</span> <span style="color: #b83838">&#39;foo&#39;</span><span style="color: #888888">));</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertFalse</span><span style="color: #888888">(</span><span style="color: #b04040">$rule</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;attr&#39;</span><span style="color: #888888">,</span> <span style="color: #b83838">&#39;bar&#39;</span><span style="color: #888888">));</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<p>Class-based rules (Laravel 5.5) có thể được test một cách đơn giản, giống những class bình thường khác với những rules cơ bản cho code coverage.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Transformers/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Testing Transformers and Presenters
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.fd16492e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
