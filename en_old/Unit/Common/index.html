@@ -1,0 +1,1043 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+    
+    
+      
+        <title>Common Testing Rules - PHP Testing Guidelines</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1655a90d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#common-testing-rules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="PHP Testing Guidelines" class="md-header__button md-logo" aria-label="PHP Testing Guidelines">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PHP Testing Guidelines
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Common Testing Rules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/tuanpt-0634/laravel-test-guideline/tree/new-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="PHP Testing Guidelines" class="md-nav__button md-logo" aria-label="PHP Testing Guidelines">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    PHP Testing Guidelines
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/tuanpt-0634/laravel-test-guideline/tree/new-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Giới thiệu
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-why/" class="md-nav__link">
+        Viết test để làm gì?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-testcase/" class="md-nav__link">
+        Cơ bản về test case
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-phpunit/" class="md-nav__link">
+        PHPUnit
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-code-coverage/" class="md-nav__link">
+        Code Coverage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05-test-doubles-and-di/" class="md-nav__link">
+        Test Doubles và DI
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06-mutation-testing/" class="md-nav__link">
+        Mutation Testing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../07-laravel/" class="md-nav__link">
+        Laravel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../08-checklist/" class="md-nav__link">
+        Checklist
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../09-references/" class="md-nav__link">
+        Tài liệu khác
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
+      
+      <label class="md-nav__link" for="__nav_11">
+        En old
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="En old" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          En old
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Conventions/" class="md-nav__link">
+        Laravel Testing Conventions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Introduction/" class="md-nav__link">
+        Introduction to Laravel Testing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Knowledge/" class="md-nav__link">
+        Knowledge about Unit Testing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" type="checkbox" id="__nav_11_4" >
+      
+      <label class="md-nav__link" for="__nav_11_4">
+        Integration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Integration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Integration/Integration/" class="md-nav__link">
+        Integration Tests
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_5" type="checkbox" id="__nav_11_5" checked>
+      
+      <label class="md-nav__link" for="__nav_11_5">
+        Unit
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Unit" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_5">
+          <span class="md-nav__icon md-icon"></span>
+          Unit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Common Testing Rules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Common Testing Rules
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mocking-di-instances" class="md-nav__link">
+    Mocking DI instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-database-queries" class="md-nav__link">
+    Testing Database Queries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Controllers/" class="md-nav__link">
+        Testing Controllers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Middleware/" class="md-nav__link">
+        Testing Middleware Classes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Models/" class="md-nav__link">
+        Testing Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transformers/" class="md-nav__link">
+        Testing Transformers and Presenters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Validation/" class="md-nav__link">
+        Testing Validation Rules.
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        Vn old
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Vn old" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Vn old
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vn_old/Conventions/" class="md-nav__link">
+        Laravel Testing Conventions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vn_old/Introduction/" class="md-nav__link">
+        Giới thiệu về Laravel Testing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vn_old/Knowledge/" class="md-nav__link">
+        Knowledge about Unit Testing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_4" type="checkbox" id="__nav_12_4" >
+      
+      <label class="md-nav__link" for="__nav_12_4">
+        Integration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Integration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_12_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vn_old/Integration/Integration/" class="md-nav__link">
+        Integration Tests
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5" type="checkbox" id="__nav_12_5" >
+      
+      <label class="md-nav__link" for="__nav_12_5">
+        Unit
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Unit" data-md-level="2">
+        <label class="md-nav__title" for="__nav_12_5">
+          <span class="md-nav__icon md-icon"></span>
+          Unit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vn_old/Unit/Common/" class="md-nav__link">
+        Common Testing Rules
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vn_old/Unit/Controllers/" class="md-nav__link">
+        Testing Controllers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vn_old/Unit/Middleware/" class="md-nav__link">
+        Testing Middleware Classes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vn_old/Unit/Models/" class="md-nav__link">
+        Testing Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vn_old/Unit/Transformers/" class="md-nav__link">
+        Testing Transformers and Presenters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vn_old/Unit/Validation/" class="md-nav__link">
+        Testing Validation Rules.
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mocking-di-instances" class="md-nav__link">
+    Mocking DI instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-database-queries" class="md-nav__link">
+    Testing Database Queries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/tuanpt-0634/laravel-test-guideline/tree/new-docs/edit/master/docs/en_old/Unit/Common.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="common-testing-rules">Common Testing Rules<a class="headerlink" href="#common-testing-rules" title="Permanent link">&para;</a></h1>
+<p>With most components like events, event listeners, subscribers, queue jobs and validation rule classes, you should follow
+the same basic rules:</p>
+<ol>
+<li>Test <code>__construct()</code> method to make sure that properties are assigned.</li>
+<li>Cover all public methods with necessary tests.</li>
+<li>Pay the most attention to the main method (e. g. <code>handle</code> for listeners or <code>passes</code> for rules).</li>
+<li>Coverage is not necessary for methods, which return text (e. g. <code>message</code> for rules).</li>
+<li>Coverage is optional for basic get/set methods, which don't modify input arguments.</li>
+</ol>
+<h2 id="mocking-di-instances">Mocking DI instances<a class="headerlink" href="#mocking-di-instances" title="Permanent link">&para;</a></h2>
+<p>Laravel uses injections in various cases and your components might use it via method/constructor injection
+or directly inside methods via container instance or facades.</p>
+<p>For such cases it is very important to create test doubles for every injected instance and make sure that
+no additional instances are resolved.</p>
+<p>By default, <code>TestCase</code> class provided with Laravel automatically instantiates application instance. It is good
+to use this approach, but highly recommended to have an additional basic test case with mocked app.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #2838b0">class</span> <span style="color: #287088">MockApplicationTestCase</span> <span style="color: #2838b0">extends</span> TestCase
+<span style="color: #888888">{</span>
+    <span style="color: #b85820; font-style: italic">/**</span>
+<span style="color: #b85820; font-style: italic">     * Creates the application.</span>
+<span style="color: #b85820; font-style: italic">     *</span>
+<span style="color: #b85820; font-style: italic">     * @return \Illuminate\Foundation\Application|\Mockery\Mock</span>
+<span style="color: #b85820; font-style: italic">     */</span>
+    <span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">createApplication</span><span style="color: #888888">()</span>
+    <span style="color: #888888">{</span>
+        <span style="color: #2838b0">return</span> m<span style="color: #666666">::</span><span style="color: #388038">mock</span><span style="color: #888888">(</span>\Illuminate\Foundation\Application<span style="color: #666666">::</span><span style="color: #388038">class</span><span style="color: #888888">)</span><span style="color: #666666">-&gt;</span><span style="color: #388038">makePartial</span><span style="color: #888888">();</span>
+    <span style="color: #888888">}</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<p>This approach will help you to control all DI process carefully. Now you can inject test doubles simply.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">test_it_assignes_event_handler</span><span style="color: #888888">()</span>
+<span style="color: #888888">{</span>
+    <span style="color: #b04040">$e</span> <span style="color: #666666">=</span> m<span style="color: #666666">::</span><span style="color: #388038">mock</span><span style="color: #888888">(</span>Dispatcher<span style="color: #666666">::</span><span style="color: #388038">class</span><span style="color: #888888">);</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">app</span><span style="color: #666666">-&gt;</span><span style="color: #388038">bind</span><span style="color: #888888">(</span>Dispatcher<span style="color: #666666">::</span><span style="color: #388038">class</span><span style="color: #888888">,</span> <span style="color: #b04040">$e</span><span style="color: #888888">);</span>
+    <span style="color: #888888; font-style: italic">// Test event assignment with mocked class.</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<h2 id="testing-database-queries">Testing Database Queries<a class="headerlink" href="#testing-database-queries" title="Permanent link">&para;</a></h2>
+<p>Isolation is very important for test cases and it is critical to make sure that SQL queries are built properly.</p>
+<p>All database interactions in Laravel are made through <code>Illuminate\Database\Connection</code> class, which methods can be easily
+mocked with Mockery package.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #b04040">$connection</span> <span style="color: #666666">=</span> m<span style="color: #666666">::</span><span style="color: #388038">mock</span><span style="color: #888888">(</span>Connection<span style="color: #666666">::</span><span style="color: #388038">class</span><span style="color: #888888">);</span>
+<span style="color: #b04040">$query</span> <span style="color: #666666">=</span> <span style="color: #2838b0">new</span> Builder<span style="color: #888888">(</span><span style="color: #b04040">$connection</span><span style="color: #888888">,</span> <span style="color: #2838b0">new</span> SQLiteGrammar<span style="color: #888888">(),</span> <span style="color: #2838b0">new</span> Processor<span style="color: #888888">());</span>
+<span style="color: #888888; font-style: italic">// DB::table is the most common call and it is simpler to mock the method manually instead of dealing with partial mocks.</span>
+<span style="color: #b04040">$connection</span><span style="color: #666666">-&gt;</span><span style="color: #388038">allows</span><span style="color: #888888">()</span><span style="color: #666666">-&gt;</span><span style="color: #388038">table</span><span style="color: #888888">()</span><span style="color: #666666">-&gt;</span><span style="color: #388038">andReturnUsing</span><span style="color: #888888">(</span><span style="color: #2838b0">function</span> <span style="color: #888888">(</span><span style="color: #b04040">$table</span><span style="color: #888888">)</span> <span style="color: #2838b0">use</span> <span style="color: #888888">(</span><span style="color: #b04040">$query</span><span style="color: #888888">)</span> <span style="color: #888888">{</span>
+    <span style="color: #2838b0">return</span> <span style="color: #b04040">$query</span><span style="color: #666666">-&gt;</span><span style="color: #388038">from</span><span style="color: #888888">(</span><span style="color: #b04040">$table</span><span style="color: #888888">);</span>
+<span style="color: #888888">})</span>
+
+<span style="color: #888888; font-style: italic">// Test your queries</span>
+
+<span style="color: #b04040">$connection</span><span style="color: #666666">-&gt;</span><span style="color: #388038">shouldReceive</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;select&#39;</span><span style="color: #888888">)</span><span style="color: #666666">-&gt;</span><span style="color: #388038">with</span><span style="color: #888888">(</span>
+    <span style="color: #b83838">&#39;select * from &quot;streets&quot; limit 10 offset 0&#39;</span><span style="color: #888888">,</span> <span style="color: #888888; font-style: italic">// query</span>
+    <span style="color: #888888">[],</span> <span style="color: #888888; font-style: italic">// bindings</span>
+    m<span style="color: #666666">::</span><span style="color: #388038">any</span><span style="color: #888888">()</span> <span style="color: #888888; font-style: italic">// useReadPdo. use true/false if necessary</span>
+<span style="color: #888888">)</span><span style="color: #666666">-&gt;</span><span style="color: #388038">andReturn</span><span style="color: #888888">([</span>
+    <span style="color: #888888; font-style: italic">// &#39;query result&#39;</span>
+<span style="color: #888888">]);</span>
+
+<span style="color: #b04040">$someClass</span><span style="color: #666666">-&gt;</span><span style="color: #388038">methodUsingConnection</span><span style="color: #888888">();</span>
+</code></pre></div>
+<p>Sometimes it is handy to inject mocked connection into DI and have it available everywhere.
+Direct property modification is used here, because default extension requires mocking of connection methods,
+which we don't need.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #2838b0">protected</span> <span style="color: #b04040">$db</span><span style="color: #888888">;</span>
+
+<span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">setUp</span><span style="color: #888888">()</span>
+<span style="color: #888888">{</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">afterApplicationCreated</span><span style="color: #888888">(</span><span style="color: #2838b0">function</span> <span style="color: #888888">()</span> <span style="color: #888888">{</span>
+        <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">db</span> <span style="color: #666666">=</span> m<span style="color: #666666">::</span><span style="color: #388038">mock</span><span style="color: #888888">(</span>
+            Connection<span style="color: #666666">::</span><span style="color: #388038">class</span><span style="color: #666666">.</span><span style="color: #b83838">&#39;[select,update,insert,delete]&#39;</span><span style="color: #888888">,</span>
+            <span style="color: #888888">[</span>m<span style="color: #666666">::</span><span style="color: #388038">mock</span><span style="color: #888888">(</span>\PDO<span style="color: #666666">::</span><span style="color: #388038">class</span><span style="color: #888888">)]</span>
+        <span style="color: #888888">);</span>
+
+        <span style="color: #b04040">$manager</span> <span style="color: #666666">=</span> <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">app</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;db&#39;</span><span style="color: #888888">];</span>
+        <span style="color: #b04040">$manager</span><span style="color: #666666">-&gt;</span><span style="color: #388038">setDefaultConnection</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;mock&#39;</span><span style="color: #888888">);</span>
+
+        <span style="color: #b04040">$r</span> <span style="color: #666666">=</span> <span style="color: #2838b0">new</span> \ReflectionClass<span style="color: #888888">(</span><span style="color: #b04040">$manager</span><span style="color: #888888">);</span>
+        <span style="color: #b04040">$p</span> <span style="color: #666666">=</span> <span style="color: #b04040">$r</span><span style="color: #666666">-&gt;</span><span style="color: #388038">getProperty</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;connections&#39;</span><span style="color: #888888">);</span>
+        <span style="color: #b04040">$p</span><span style="color: #666666">-&gt;</span><span style="color: #388038">setAccessible</span><span style="color: #888888">(</span><span style="color: #2838b0">true</span><span style="color: #888888">);</span>
+        <span style="color: #b04040">$list</span> <span style="color: #666666">=</span> <span style="color: #b04040">$p</span><span style="color: #666666">-&gt;</span><span style="color: #388038">getValue</span><span style="color: #888888">(</span><span style="color: #b04040">$manager</span><span style="color: #888888">);</span>
+        <span style="color: #b04040">$list</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;mock&#39;</span><span style="color: #888888">]</span> <span style="color: #666666">=</span> <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">db</span><span style="color: #888888">;</span>
+        <span style="color: #b04040">$p</span><span style="color: #666666">-&gt;</span><span style="color: #388038">setValue</span><span style="color: #888888">(</span><span style="color: #b04040">$manager</span><span style="color: #888888">,</span> <span style="color: #b04040">$list</span><span style="color: #888888">);</span>
+    <span style="color: #888888">});</span>
+
+    <span style="color: #2838b0">parent</span><span style="color: #666666">::</span><span style="color: #388038">setUp</span><span style="color: #888888">();</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+<p>You should remember following things for database testing:</p>
+<ul>
+<li>You may have named connections, be careful with that.</li>
+<li>Models get connections via <code>ConnectionResolverInterface</code> which is assigned in the model itself and might differ.</li>
+<li>Queries are created differently using different grammars. Use the one suitable for your project.</li>
+</ul>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/framgia/laravel-test-examples/tree/master/app/Events">Laravel event</a> and <a href="https://github.com/framgia/laravel-test-examples/tree/master/tests/Unit/Events">tests</a></li>
+<li><a href="https://github.com/framgia/laravel-test-examples/tree/master/app/Listeners">Listeners</a> and <a href="https://github.com/framgia/laravel-test-examples/tree/master/tests/Unit/Listeners">tests</a></li>
+<li><a href="https://github.com/framgia/laravel-test-examples/blob/master/tests/Unit/Http/Controllers/CityControllerTest.php#L24">Database mock setup</a> and <a href="https://github.com/framgia/laravel-test-examples/blob/master/tests/Unit/Http/Controllers/CityControllerTest.php#L76">usage</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../Integration/Integration/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Integration Tests
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../Controllers/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Testing Controllers
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      
+    
+  </body>
+</html>

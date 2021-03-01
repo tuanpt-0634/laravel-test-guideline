@@ -9,19 +9,19 @@
       
       
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
     
     
       
-        <title>Code Coverage - PHP Testing Guidelines</title>
+        <title>Testing Transformers and Presenters - PHP Testing Guidelines</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1655a90d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.7fa14f5b.min.css">
         
       
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#code-coverage" class="md-skip">
+        <a href="#testing-transformers-and-presenters" class="md-skip">
           Skip to content
         </a>
       
@@ -71,7 +71,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="PHP Testing Guidelines" class="md-header__button md-logo" aria-label="PHP Testing Guidelines">
+    <a href="../../.." title="PHP Testing Guidelines" class="md-header__button md-logo" aria-label="PHP Testing Guidelines">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -90,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Code Coverage
+              Testing Transformers and Presenters
             
           </span>
         </div>
@@ -167,7 +167,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="PHP Testing Guidelines" class="md-nav__button md-logo" aria-label="PHP Testing Guidelines">
+    <a href="../../.." title="PHP Testing Guidelines" class="md-nav__button md-logo" aria-label="PHP Testing Guidelines">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -199,7 +199,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Giới thiệu
       </a>
     </li>
@@ -214,7 +214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-why/" class="md-nav__link">
+      <a href="../../../01-why/" class="md-nav__link">
         Viết test để làm gì?
       </a>
     </li>
@@ -229,7 +229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-testcase/" class="md-nav__link">
+      <a href="../../../02-testcase/" class="md-nav__link">
         Cơ bản về test case
       </a>
     </li>
@@ -244,7 +244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-phpunit/" class="md-nav__link">
+      <a href="../../../03-phpunit/" class="md-nav__link">
         PHPUnit
       </a>
     </li>
@@ -257,83 +257,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Code Coverage
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../04-code-coverage/" class="md-nav__link">
         Code Coverage
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#khai-niem" class="md-nav__link">
-    Khái niệm
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tao-report-voi-phpunit" class="md-nav__link">
-    Tạo report với PHPUnit
-  </a>
-  
-    <nav class="md-nav" aria-label="Tạo report với PHPUnit">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#coverage-driver" class="md-nav__link">
-    Coverage driver
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#coverage-format" class="md-nav__link">
-    Coverage format
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#100-code-coverage" class="md-nav__link">
-    100% code coverage
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -346,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-test-doubles-and-di/" class="md-nav__link">
+      <a href="../../../05-test-doubles-and-di/" class="md-nav__link">
         Test Doubles và DI
       </a>
     </li>
@@ -361,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-mutation-testing/" class="md-nav__link">
+      <a href="../../../06-mutation-testing/" class="md-nav__link">
         Mutation Testing
       </a>
     </li>
@@ -376,7 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-laravel/" class="md-nav__link">
+      <a href="../../../07-laravel/" class="md-nav__link">
         Laravel
       </a>
     </li>
@@ -391,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-checklist/" class="md-nav__link">
+      <a href="../../../08-checklist/" class="md-nav__link">
         Checklist
       </a>
     </li>
@@ -406,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../09-references/" class="md-nav__link">
+      <a href="../../../09-references/" class="md-nav__link">
         Tài liệu khác
       </a>
     </li>
@@ -442,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Conventions/" class="md-nav__link">
+      <a href="../../../en_old/Conventions/" class="md-nav__link">
         Laravel Testing Conventions
       </a>
     </li>
@@ -454,7 +382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Introduction/" class="md-nav__link">
+      <a href="../../../en_old/Introduction/" class="md-nav__link">
         Introduction to Laravel Testing
       </a>
     </li>
@@ -466,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Knowledge/" class="md-nav__link">
+      <a href="../../../en_old/Knowledge/" class="md-nav__link">
         Knowledge about Unit Testing
       </a>
     </li>
@@ -499,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Integration/Integration/" class="md-nav__link">
+      <a href="../../../en_old/Integration/Integration/" class="md-nav__link">
         Integration Tests
       </a>
     </li>
@@ -538,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Common/" class="md-nav__link">
+      <a href="../../../en_old/Unit/Common/" class="md-nav__link">
         Common Testing Rules
       </a>
     </li>
@@ -550,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Controllers/" class="md-nav__link">
+      <a href="../../../en_old/Unit/Controllers/" class="md-nav__link">
         Testing Controllers
       </a>
     </li>
@@ -562,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Middleware/" class="md-nav__link">
+      <a href="../../../en_old/Unit/Middleware/" class="md-nav__link">
         Testing Middleware Classes
       </a>
     </li>
@@ -574,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Models/" class="md-nav__link">
+      <a href="../../../en_old/Unit/Models/" class="md-nav__link">
         Testing Models
       </a>
     </li>
@@ -586,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Transformers/" class="md-nav__link">
+      <a href="../../../en_old/Unit/Transformers/" class="md-nav__link">
         Testing Transformers and Presenters
       </a>
     </li>
@@ -598,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Validation/" class="md-nav__link">
+      <a href="../../../en_old/Unit/Validation/" class="md-nav__link">
         Testing Validation Rules.
       </a>
     </li>
@@ -623,12 +551,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" checked>
       
       <label class="md-nav__link" for="__nav_12">
         Vn old
@@ -646,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Conventions/" class="md-nav__link">
+      <a href="../../Conventions/" class="md-nav__link">
         Laravel Testing Conventions
       </a>
     </li>
@@ -658,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Introduction/" class="md-nav__link">
+      <a href="../../Introduction/" class="md-nav__link">
         Giới thiệu về Laravel Testing
       </a>
     </li>
@@ -670,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Knowledge/" class="md-nav__link">
+      <a href="../../Knowledge/" class="md-nav__link">
         Knowledge about Unit Testing
       </a>
     </li>
@@ -703,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Integration/Integration/" class="md-nav__link">
+      <a href="../../Integration/Integration/" class="md-nav__link">
         Integration Tests
       </a>
     </li>
@@ -719,12 +649,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5" type="checkbox" id="__nav_12_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5" type="checkbox" id="__nav_12_5" checked>
       
       <label class="md-nav__link" for="__nav_12_5">
         Unit
@@ -742,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Common/" class="md-nav__link">
+      <a href="../Common/" class="md-nav__link">
         Common Testing Rules
       </a>
     </li>
@@ -754,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Controllers/" class="md-nav__link">
+      <a href="../Controllers/" class="md-nav__link">
         Testing Controllers
       </a>
     </li>
@@ -766,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Middleware/" class="md-nav__link">
+      <a href="../Middleware/" class="md-nav__link">
         Testing Middleware Classes
       </a>
     </li>
@@ -778,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Models/" class="md-nav__link">
+      <a href="../Models/" class="md-nav__link">
         Testing Models
       </a>
     </li>
@@ -788,11 +720,49 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../vn_old/Unit/Transformers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Testing Transformers and Presenters
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Testing Transformers and Presenters
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#guide" class="md-nav__link">
+    Guide
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -802,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Validation/" class="md-nav__link">
+      <a href="../Validation/" class="md-nav__link">
         Testing Validation Rules.
       </a>
     </li>
@@ -846,42 +816,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#khai-niem" class="md-nav__link">
-    Khái niệm
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tao-report-voi-phpunit" class="md-nav__link">
-    Tạo report với PHPUnit
-  </a>
-  
-    <nav class="md-nav" aria-label="Tạo report với PHPUnit">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#coverage-driver" class="md-nav__link">
-    Coverage driver
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#coverage-format" class="md-nav__link">
-    Coverage format
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#100-code-coverage" class="md-nav__link">
-    100% code coverage
+  <a href="#guide" class="md-nav__link">
+    Guide
   </a>
   
 </li>
@@ -898,62 +834,77 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/tuanpt-0634/laravel-test-guideline/tree/new-docs/edit/master/docs/04-code-coverage.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/tuanpt-0634/laravel-test-guideline/tree/new-docs/edit/master/docs/vn_old/Unit/Transformers.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="code-coverage">Code Coverage<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h1>
-<h2 id="khai-niem">Khái niệm<a class="headerlink" href="#khai-niem" title="Permanent link">&para;</a></h2>
-<p><strong>Code coverage</strong> là một phương pháp đánh giá được dùng để mô tả mức độ mà source code của một chương trình đã được thực thi, khi mà một bộ Test cụ thể chạy.</p>
-<p>Nói một cách khác, <strong>Code coverage</strong> là một cách để đảm bảo rằng Tests của bạn thực sự đang test Codes của bạn!</p>
-<p>Công thức tính Code coverage:</p>
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code>Code Coverage = (Tổng số dòng Code được gọi bởi các bài Tests của bạn) / (Tổng số dòng Code trong thực tế) x 100%
+                <h1 id="testing-transformers-and-presenters">Testing Transformers and Presenters<a class="headerlink" href="#testing-transformers-and-presenters" title="Permanent link">&para;</a></h1>
+<p>Hầu hết các project đều bao gồm serializations và presenters, theo cách này hay cách khác.</p>
+<p>Cách thức mặc định mà Laravel cung cấp đó là sử dụng mutators/getters trong Model class, tuy nhiên trong những application phức tạp, ta nên sử dụng những cách khác.</p>
+<p>Hướng dẫn dưới đây có thể được áp dụng cho những trường hợp chung dùng transformers hay presenters.</p>
+<h2 id="guide">Guide<a class="headerlink" href="#guide" title="Permanent link">&para;</a></h2>
+<p>Sử dụng transformers một cách thích đáng là rất cần thiết cho những application cung cấp API, và cũng rất khuyến khích sử dụng trong những application khác nữa.</p>
+<p>Transformer test phải tuân thủ các mục tiêu sau:</p>
+<ol>
+<li>Đảm bảo tính nhất quán của dữ liệu (object structure must not change between commit unexpected).</li>
+<li>Đảm bảo proterty mutations được thực hiện chính xác.</li>
+<li>Đảm bảo kiểu data khớp với đầu ra mong muốn.</li>
+</ol>
+<p>Trong rất nhiều các API client applications, việc xuất hiện properties mới, hay mất một vài properties có thể sẽ dẫn đến hậu quả nghiêm trọng.
+Do đó mọi thay đổi đến cấu trúc object phải luôn được kiểm soát.</p>
+<p>Hãy chắc chắn rằng transformers của bạn luôn có dữ liệu nhất quán.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">test_output_contains_valid_structure</span><span style="color: #888888">()</span>
+<span style="color: #888888">{</span>
+    <span style="color: #b04040">$u</span> <span style="color: #666666">=</span> <span style="color: #2838b0">new</span> User<span style="color: #888888">([</span>
+        <span style="color: #b83838">&#39;name&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;Jonh&#39;</span><span style="color: #888888">,</span>
+        <span style="color: #b83838">&#39;email&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;jonh@example.com&#39;</span><span style="color: #888888">,</span>
+        <span style="color: #b83838">&#39;password&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;123456&#39;</span><span style="color: #888888">,</span>
+        <span style="color: #b83838">&#39;created_at&#39;</span> <span style="color: #666666">=&gt;</span> Carbon<span style="color: #666666">::</span><span style="color: #388038">now</span><span style="color: #888888">(),</span>
+        <span style="color: #b83838">&#39;updated_at&#39;</span> <span style="color: #666666">=&gt;</span> Carbon<span style="color: #666666">::</span><span style="color: #388038">now</span><span style="color: #888888">(),</span>
+    <span style="color: #888888">])</span>
+
+    <span style="color: #b04040">$u</span><span style="color: #666666">-&gt;</span><span style="color: #388038">setRelation</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;posts&#39;</span><span style="color: #888888">,</span> <span style="color: #888888">[</span>
+        <span style="color: #2838b0">new</span> Post<span style="color: #888888">([</span>
+            <span style="color: #b83838">&#39;title&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;Test post&#39;</span><span style="color: #888888">,</span>
+            <span style="color: #b83838">&#39;created_at&#39;</span> <span style="color: #666666">=&gt;</span> Carbon<span style="color: #666666">::</span><span style="color: #388038">now</span><span style="color: #888888">(),</span>
+            <span style="color: #b83838">&#39;updated_at&#39;</span> <span style="color: #666666">=&gt;</span> Carbon<span style="color: #666666">::</span><span style="color: #388038">now</span><span style="color: #888888">(),</span>
+        <span style="color: #888888">])</span>
+    <span style="color: #888888">])</span>
+
+    <span style="color: #b04040">$t</span> <span style="color: #666666">=</span> <span style="color: #888888">(</span><span style="color: #2838b0">new</span> UserTransformer<span style="color: #888888">())</span><span style="color: #666666">-&gt;</span><span style="color: #388038">transform</span><span style="color: #888888">(</span><span style="color: #b04040">$user</span><span style="color: #888888">);</span>
+
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertEquals</span><span style="color: #888888">([</span>
+        <span style="color: #b83838">&#39;name&#39;</span><span style="color: #888888">,</span> <span style="color: #b83838">&#39;email&#39;</span><span style="color: #888888">,</span> <span style="color: #b83838">&#39;created_at&#39;</span><span style="color: #888888">,</span> <span style="color: #b83838">&#39;updated_at&#39;</span><span style="color: #888888">,</span> <span style="color: #b83838">&#39;posts&#39;</span>
+    <span style="color: #888888">],</span> <span style="color: #388038">array_keys</span><span style="color: #888888">(</span><span style="color: #b04040">$t</span><span style="color: #888888">));</span>
+
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertTrue</span><span style="color: #888888">(</span><span style="color: #388038">is_array</span><span style="color: #888888">(</span><span style="color: #b04040">$t</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;posts&#39;</span><span style="color: #888888">]));</span>
+
+    <span style="color: #888888; font-style: italic">// Additional checks.</span>
+<span style="color: #888888">}</span>
 </code></pre></div>
-<p>Ví dụ: Nếu code coverage của bạn là 90%, điều đó có nghĩa là 90% các dòng codes trong project của bạn đã được gọi ghi chạy Test.</p>
-<h2 id="tao-report-voi-phpunit">Tạo report với PHPUnit<a class="headerlink" href="#tao-report-voi-phpunit" title="Permanent link">&para;</a></h2>
-<h3 id="coverage-driver">Coverage driver<a class="headerlink" href="#coverage-driver" title="Permanent link">&para;</a></h3>
-<p>Để generate coverage report bằng PHPUnit, cần có <a href="https://github.com/sebastianbergmann/php-code-coverage/tree/master/src/Driver">coverage driver</a>.</p>
-<p>Có 3 drivers bao gồm (ưu tiên từ trên xuống dưới):</p>
-<ul>
-<li>
-<p><a href="https://github.com/krakjoe/pcov">pcov</a> cho PHPUnit version &gt;= 8
-    <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code>php -dextension<span style="color: #666666">=</span>pcov.so -dpcov.enabled<span style="color: #666666">=</span><span style="color: #444444">1</span> -dpcov.directory<span style="color: #666666">=</span>app ./vendor/bin/phpunit --coverage-text
-</code></pre></div></p>
-<p><strong>NOTE</strong>: <code>pcov.directory=app</code>, trong đó <code>app</code> là thư mục chứa source code</p>
-</li>
-<li>
-<p><code>phpdbg</code>
-    <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code>phpdbg -qrr ./vendor/bin/phpunit --coverage-text
-</code></pre></div></p>
-</li>
-<li>XDebug
-    <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code>php -dzend_extension<span style="color: #666666">=</span>xdebug.so ./vendor/bin/phpunit --coverage-text
-</code></pre></div></li>
-</ul>
-<h3 id="coverage-format">Coverage format<a class="headerlink" href="#coverage-format" title="Permanent link">&para;</a></h3>
-<p>Có nhiều loại format cho coverage:</p>
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code>Code Coverage Options:
-  --coverage-clover &lt;file&gt;    Generate code coverage report in Clover XML format
-  --coverage-crap4j &lt;file&gt;    Generate code coverage report in Crap4J XML format
-  --coverage-html &lt;dir&gt;       Generate code coverage report in HTML format
-  --coverage-php &lt;file&gt;       Export PHP_CodeCoverage object to file
-  --coverage-text=&lt;file&gt;      Generate code coverage report in text format [default: standard output]
-  --coverage-xml &lt;dir&gt;        Generate code coverage report in PHPUnit XML format
+<p>Nếu application của bạn có implement Feature Test cho API, bạn có thể thay việc check này bằng cách sử dụng method <code>assertJsonStructure</code> bên trong Feature test case.</p>
+<p>Với JSON output, cần phải check data type, đặc biệt nếu API Clients của bạn được viết bằng những ngôn ngữ dùng strict-type.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">test_data_types</span><span style="color: #888888">()</span>
+<span style="color: #888888">{</span>
+    <span style="color: #b04040">$u</span> <span style="color: #666666">=</span> <span style="color: #2838b0">new</span> User<span style="color: #888888">([</span>
+        <span style="color: #b83838">&#39;id&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;1&#39;</span><span style="color: #888888">,</span>
+        <span style="color: #b83838">&#39;name&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;Jonh&#39;</span><span style="color: #888888">,</span>
+        <span style="color: #b83838">&#39;email&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #b83838">&#39;jonh@example.com&#39;</span><span style="color: #888888">,</span>
+        <span style="color: #b83838">&#39;created_at&#39;</span> <span style="color: #666666">=&gt;</span> Carbon<span style="color: #666666">::</span><span style="color: #388038">now</span><span style="color: #888888">(),</span>
+    <span style="color: #888888">])</span>
+
+    <span style="color: #b04040">$t</span> <span style="color: #666666">=</span> <span style="color: #888888">(</span><span style="color: #2838b0">new</span> UserTransformer<span style="color: #888888">())</span><span style="color: #666666">-&gt;</span><span style="color: #388038">transform</span><span style="color: #888888">(</span><span style="color: #b04040">$user</span><span style="color: #888888">);</span>
+
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertInternalType</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;int&#39;</span><span style="color: #888888">,</span> <span style="color: #b04040">$t</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;id&#39;</span><span style="color: #888888">]);</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertInternalType</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;string&#39;</span><span style="color: #888888">,</span> <span style="color: #b04040">$t</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;name&#39;</span><span style="color: #888888">]);</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertInternalType</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;string&#39;</span><span style="color: #888888">,</span> <span style="color: #b04040">$t</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;email&#39;</span><span style="color: #888888">]);</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertInternalType</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;array&#39;</span><span style="color: #888888">,</span> <span style="color: #b04040">$t</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;created_at&#39;</span><span style="color: #888888">]);</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertInternalType</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;string&#39;</span><span style="color: #888888">,</span> <span style="color: #b04040">$t</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;created_at&#39;</span><span style="color: #888888">][</span><span style="color: #b83838">&#39;date&#39;</span><span style="color: #888888">]);</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertInternalType</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;int&#39;</span><span style="color: #888888">,</span> <span style="color: #b04040">$t</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;created_at&#39;</span><span style="color: #888888">][</span><span style="color: #b83838">&#39;timezone_type&#39;</span><span style="color: #888888">]);</span>
+    <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertInternalType</span><span style="color: #888888">(</span><span style="color: #b83838">&#39;string&#39;</span><span style="color: #888888">,</span> <span style="color: #b04040">$t</span><span style="color: #888888">[</span><span style="color: #b83838">&#39;created_at&#39;</span><span style="color: #888888">][</span><span style="color: #b83838">&#39;timezone&#39;</span><span style="color: #888888">]);</span>
+<span style="color: #888888">}</span>
 </code></pre></div>
-<p>Nhưng thông dụng nhất là <code>--coverage-text</code> thường dùng trong CI hoặc xem nhanh kết quả và <code>--coverage-html</code> để xem chi tiết dưới dạng web dashboard và <code>--coverage-clover</code> dùng cho CI.</p>
-<h2 id="100-code-coverage">100% code coverage<a class="headerlink" href="#100-code-coverage" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>100% code coverage is not our main purpose of test!!! 70 - 80% is ok!</p>
-<p>Quotes:</p>
-<ul>
-<li>Quality over quantity</li>
-<li>If it scares you then write test for it</li>
-<li>Think how to write enough test cases</li>
-<li>Think how to write simple code, simple test</li>
-<li>Think how to write fast test</li>
-</ul>
-</blockquote>
                 
               
               
@@ -971,7 +922,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../03-phpunit/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../Models/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -980,19 +931,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              PHPUnit
+              Testing Models
             </div>
           </div>
         </a>
       
       
-        <a href="../05-test-doubles-and-di/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../Validation/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Test Doubles và DI
+              Testing Validation Rules.
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1020,10 +971,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ca5457b8.min.js"></script>
       
     
   </body>

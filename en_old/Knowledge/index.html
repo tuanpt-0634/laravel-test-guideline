@@ -9,19 +9,19 @@
       
       
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
     
     
       
-        <title>Cơ bản về test case - PHP Testing Guidelines</title>
+        <title>Knowledge about Unit Testing - PHP Testing Guidelines</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
         
       
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#co-ban-ve-test-case" class="md-skip">
+        <a href="#knowledge-about-unit-testing" class="md-skip">
           Skip to content
         </a>
       
@@ -71,7 +71,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="PHP Testing Guidelines" class="md-header__button md-logo" aria-label="PHP Testing Guidelines">
+    <a href="../.." title="PHP Testing Guidelines" class="md-header__button md-logo" aria-label="PHP Testing Guidelines">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -90,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cơ bản về test case
+              Knowledge about Unit Testing
             
           </span>
         </div>
@@ -167,7 +167,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="PHP Testing Guidelines" class="md-nav__button md-logo" aria-label="PHP Testing Guidelines">
+    <a href="../.." title="PHP Testing Guidelines" class="md-nav__button md-logo" aria-label="PHP Testing Guidelines">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -199,7 +199,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Giới thiệu
       </a>
     </li>
@@ -214,7 +214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-why/" class="md-nav__link">
+      <a href="../../01-why/" class="md-nav__link">
         Viết test để làm gì?
       </a>
     </li>
@@ -227,83 +227,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Cơ bản về test case
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../02-testcase/" class="md-nav__link">
         Cơ bản về test case
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#khai-niem" class="md-nav__link">
-    Khái niệm
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#viet-test-case" class="md-nav__link">
-    Viết test case
-  </a>
-  
-    <nav class="md-nav" aria-label="Viết test case">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#normal-cases" class="md-nav__link">
-    Normal cases
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#boundary-cases" class="md-nav__link">
-    Boundary cases
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#abnormal-cases" class="md-nav__link">
-    Abnormal cases
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -316,7 +244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-phpunit/" class="md-nav__link">
+      <a href="../../03-phpunit/" class="md-nav__link">
         PHPUnit
       </a>
     </li>
@@ -331,7 +259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-code-coverage/" class="md-nav__link">
+      <a href="../../04-code-coverage/" class="md-nav__link">
         Code Coverage
       </a>
     </li>
@@ -346,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-test-doubles-and-di/" class="md-nav__link">
+      <a href="../../05-test-doubles-and-di/" class="md-nav__link">
         Test Doubles và DI
       </a>
     </li>
@@ -361,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-mutation-testing/" class="md-nav__link">
+      <a href="../../06-mutation-testing/" class="md-nav__link">
         Mutation Testing
       </a>
     </li>
@@ -376,7 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-laravel/" class="md-nav__link">
+      <a href="../../07-laravel/" class="md-nav__link">
         Laravel
       </a>
     </li>
@@ -391,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-checklist/" class="md-nav__link">
+      <a href="../../08-checklist/" class="md-nav__link">
         Checklist
       </a>
     </li>
@@ -406,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../09-references/" class="md-nav__link">
+      <a href="../../09-references/" class="md-nav__link">
         Tài liệu khác
       </a>
     </li>
@@ -419,12 +347,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
       
       <label class="md-nav__link" for="__nav_11">
         En old
@@ -442,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Conventions/" class="md-nav__link">
+      <a href="../Conventions/" class="md-nav__link">
         Laravel Testing Conventions
       </a>
     </li>
@@ -454,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Introduction/" class="md-nav__link">
+      <a href="../Introduction/" class="md-nav__link">
         Introduction to Laravel Testing
       </a>
     </li>
@@ -464,11 +394,104 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../en_old/Knowledge/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Knowledge about Unit Testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Knowledge about Unit Testing
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classify" class="md-nav__link">
+    Classify
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-doubles" class="md-nav__link">
+    Test Doubles
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Doubles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dummies" class="md-nav__link">
+    Dummies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fake" class="md-nav__link">
+    Fake
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stubs" class="md-nav__link">
+    Stubs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocks" class="md-nav__link">
+    Mocks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stubs-vs-mocks" class="md-nav__link">
+    Stubs vs Mocks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -499,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Integration/Integration/" class="md-nav__link">
+      <a href="../Integration/Integration/" class="md-nav__link">
         Integration Tests
       </a>
     </li>
@@ -538,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Common/" class="md-nav__link">
+      <a href="../Unit/Common/" class="md-nav__link">
         Common Testing Rules
       </a>
     </li>
@@ -550,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Controllers/" class="md-nav__link">
+      <a href="../Unit/Controllers/" class="md-nav__link">
         Testing Controllers
       </a>
     </li>
@@ -562,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Middleware/" class="md-nav__link">
+      <a href="../Unit/Middleware/" class="md-nav__link">
         Testing Middleware Classes
       </a>
     </li>
@@ -574,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Models/" class="md-nav__link">
+      <a href="../Unit/Models/" class="md-nav__link">
         Testing Models
       </a>
     </li>
@@ -586,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Transformers/" class="md-nav__link">
+      <a href="../Unit/Transformers/" class="md-nav__link">
         Testing Transformers and Presenters
       </a>
     </li>
@@ -598,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../en_old/Unit/Validation/" class="md-nav__link">
+      <a href="../Unit/Validation/" class="md-nav__link">
         Testing Validation Rules.
       </a>
     </li>
@@ -646,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Conventions/" class="md-nav__link">
+      <a href="../../vn_old/Conventions/" class="md-nav__link">
         Laravel Testing Conventions
       </a>
     </li>
@@ -658,7 +681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Introduction/" class="md-nav__link">
+      <a href="../../vn_old/Introduction/" class="md-nav__link">
         Giới thiệu về Laravel Testing
       </a>
     </li>
@@ -670,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Knowledge/" class="md-nav__link">
+      <a href="../../vn_old/Knowledge/" class="md-nav__link">
         Knowledge about Unit Testing
       </a>
     </li>
@@ -703,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Integration/Integration/" class="md-nav__link">
+      <a href="../../vn_old/Integration/Integration/" class="md-nav__link">
         Integration Tests
       </a>
     </li>
@@ -742,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Common/" class="md-nav__link">
+      <a href="../../vn_old/Unit/Common/" class="md-nav__link">
         Common Testing Rules
       </a>
     </li>
@@ -754,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Controllers/" class="md-nav__link">
+      <a href="../../vn_old/Unit/Controllers/" class="md-nav__link">
         Testing Controllers
       </a>
     </li>
@@ -766,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Middleware/" class="md-nav__link">
+      <a href="../../vn_old/Unit/Middleware/" class="md-nav__link">
         Testing Middleware Classes
       </a>
     </li>
@@ -778,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Models/" class="md-nav__link">
+      <a href="../../vn_old/Unit/Models/" class="md-nav__link">
         Testing Models
       </a>
     </li>
@@ -790,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Transformers/" class="md-nav__link">
+      <a href="../../vn_old/Unit/Transformers/" class="md-nav__link">
         Testing Transformers and Presenters
       </a>
     </li>
@@ -802,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vn_old/Unit/Validation/" class="md-nav__link">
+      <a href="../../vn_old/Unit/Validation/" class="md-nav__link">
         Testing Validation Rules.
       </a>
     </li>
@@ -846,43 +869,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#khai-niem" class="md-nav__link">
-    Khái niệm
+  <a href="#classify" class="md-nav__link">
+    Classify
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#viet-test-case" class="md-nav__link">
-    Viết test case
+  <a href="#test-doubles" class="md-nav__link">
+    Test Doubles
   </a>
   
-    <nav class="md-nav" aria-label="Viết test case">
+    <nav class="md-nav" aria-label="Test Doubles">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#normal-cases" class="md-nav__link">
-    Normal cases
+  <a href="#dummies" class="md-nav__link">
+    Dummies
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#boundary-cases" class="md-nav__link">
-    Boundary cases
+  <a href="#fake" class="md-nav__link">
+    Fake
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#abnormal-cases" class="md-nav__link">
-    Abnormal cases
+  <a href="#stubs" class="md-nav__link">
+    Stubs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocks" class="md-nav__link">
+    Mocks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stubs-vs-mocks" class="md-nav__link">
+    Stubs vs Mocks
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
   
 </li>
       
@@ -898,25 +942,20 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/tuanpt-0634/laravel-test-guideline/tree/new-docs/edit/master/docs/02-testcase.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/tuanpt-0634/laravel-test-guideline/tree/new-docs/edit/master/docs/en_old/Knowledge.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="co-ban-ve-test-case">Cơ bản về test case<a class="headerlink" href="#co-ban-ve-test-case" title="Permanent link">&para;</a></h1>
-<h2 id="khai-niem">Khái niệm<a class="headerlink" href="#khai-niem" title="Permanent link">&para;</a></h2>
-<p>Test Case là một thuật ngữ phổ biến thường dùng trong các bài Test cụ thể. Nó thường là đơn vị nhỏ nhất của Testing.</p>
-<p>Một Test Case sẽ bao gồm các thông tin như requirements testing (các inputs, điều kiện thực thi), test steps, verification steps, prerequisites, outputs, test environment ...</p>
-<h2 id="viet-test-case">Viết test case<a class="headerlink" href="#viet-test-case" title="Permanent link">&para;</a></h2>
-<p>Trước khi tạo bất cứ Test Cases nào, chúng ta nên xác định rõ giá trị đầu vào của <strong>từng function/method</strong> cần được test.</p>
-<p>Các Test Cases phải được thiết kế để có thể cover được hết các sự kết hợp của các giá trị inputs cùng các điều kiện, bao phủ hết các nhánh if/else.</p>
-<p>Nhìn chung, chúng ta thường chia test case ra làm 3 loại dựa trên dữ liệu inputs cho Unit Test.</p>
+                <h1 id="knowledge-about-unit-testing">Knowledge about Unit Testing<a class="headerlink" href="#knowledge-about-unit-testing" title="Permanent link">&para;</a></h1>
+<h2 id="classify">Classify<a class="headerlink" href="#classify" title="Permanent link">&para;</a></h2>
+<p>Before creating of any test cases, we should determine input values of <strong>particular function/method</strong> which need to be test. The test cases should be designed to cover all combinations of input values and preconditions. Basically, we usually divide types of test case by 3 types of input dataset for unit testing.</p>
 <ul>
-<li><strong>Normal</strong>: Inputs thuộc vào dải dữ liệu bình thường (accepted). Một lượng lớn codes có thể được cover bằng cách chỉ cần chạy <strong>normal</strong> test cases.</li>
-<li><strong>Boundary</strong>: Inputs bằng hoặc xấp xỉ giá trị maximum hay minimum. Chúng được sử dụng để phát hiện lỗi tại cận, thay vì tìm kiếm lỗi tại những vị trí ở giữa trong dải input.</li>
-<li><strong>Abnormal</strong>: Inputs là không hợp lệ hay không được kỳ vọng, dùng để kiểm tra khả năng handle lỗi.</li>
+<li><strong>Normal</strong>: Inputs are normal range values (accepted). A large amount of codes can be covered just by running <strong>normal</strong> test cases.</li>
+<li><strong>Boundary</strong>: Inputs are at or just beyond its maximum or minimum limits. They are used to identify errors at boundaries rather than finding those exist in center of input domain.</li>
+<li><strong>Abnormal</strong>: Inputs are invalid (illegal or not expected) to test error handling and recovery.</li>
 </ul>
-<p>Ví dụ: <em>Giả sử như chúng ta có một function để kiểm tra địa chỉ email nhập vào từ user. Độ dài tối đa của email là 50 ký tự.</em></p>
+<p>For example: <em>Suppose we have a function which validate email address entered by user. The maximum length of an email address is 50 characters.</em></p>
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #2838b0">function</span> <span style="color: #785840">validate</span><span style="color: #888888">(</span><span style="color: #b04040">$email</span><span style="color: #888888">)</span> <span style="color: #888888">{</span>
     <span style="color: #2838b0">if</span> <span style="color: #888888">(</span><span style="color: #388038">filter_var</span><span style="color: #888888">(</span><span style="color: #b04040">$email</span><span style="color: #888888">,</span> FILTER_VALIDATE_EMAIL<span style="color: #888888">)</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #388038">strlen</span><span style="color: #888888">(</span><span style="color: #b04040">$email</span><span style="color: #888888">)</span> <span style="color: #666666">&lt;=</span> <span style="color: #444444">50</span><span style="color: #888888">)</span> <span style="color: #888888">{</span>
         <span style="color: #2838b0">return</span> <span style="color: #2838b0">true</span><span style="color: #888888">;</span>
@@ -924,8 +963,10 @@
     <span style="color: #2838b0">return</span> <span style="color: #2838b0">false</span><span style="color: #888888">;</span>
 <span style="color: #888888">}</span>
 </code></pre></div>
-<p>Chúng ta nên viết các Test Cases như sau:</p>
-<h3 id="normal-cases">Normal cases<a class="headerlink" href="#normal-cases" title="Permanent link">&para;</a></h3>
+<p>we should write the test cases as below:</p>
+<details>
+    <summary>Normal cases</summary>
+
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">test_valid_email_format_and_length</span><span style="color: #888888">()</span>
 <span style="color: #888888">{</span>
     <span style="color: #888888; font-style: italic">// Email with length 18 (less than: maximum - 1)</span>
@@ -933,7 +974,12 @@
     <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertEquals</span><span style="color: #888888">(</span><span style="color: #2838b0">true</span><span style="color: #888888">,</span> validate<span style="color: #888888">(</span><span style="color: #b04040">$email</span><span style="color: #888888">));</span>
 <span style="color: #888888">}</span>
 </code></pre></div>
-<h3 id="boundary-cases">Boundary cases<a class="headerlink" href="#boundary-cases" title="Permanent link">&para;</a></h3>
+
+</details>
+
+<details>
+    <summary>Boundary cases</summary>
+
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">test_valid_email_format_and_length_max_minus</span><span style="color: #888888">()</span>
 <span style="color: #888888">{</span>
     <span style="color: #888888; font-style: italic">// Email with length 49 (maximum - 1)</span>
@@ -955,7 +1001,12 @@
     <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertEquals</span><span style="color: #888888">(</span><span style="color: #2838b0">false</span><span style="color: #888888">,</span> validate<span style="color: #888888">(</span><span style="color: #b04040">$email</span><span style="color: #888888">));</span>
 <span style="color: #888888">}</span>
 </code></pre></div>
-<h3 id="abnormal-cases">Abnormal cases<a class="headerlink" href="#abnormal-cases" title="Permanent link">&para;</a></h3>
+
+</details>
+
+<details>
+    <summary>Abnormal cases</summary>
+
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #2838b0">public</span> <span style="color: #2838b0">function</span> <span style="color: #785840">test_invalid_email_format</span><span style="color: #888888">()</span>
 <span style="color: #888888">{</span>
     <span style="color: #888888; font-style: italic">// Invalid email format with normal length (between 0 ~ 50)</span>
@@ -970,6 +1021,46 @@
     <span style="color: #b04040">$this</span><span style="color: #666666">-&gt;</span><span style="color: #388038">assertEquals</span><span style="color: #888888">(</span><span style="color: #2838b0">false</span><span style="color: #888888">,</span> validate<span style="color: #888888">(</span><span style="color: #b04040">$email</span><span style="color: #888888">));</span>
 <span style="color: #888888">}</span>
 </code></pre></div>
+
+</details>
+
+<h2 id="test-doubles">Test Doubles<a class="headerlink" href="#test-doubles" title="Permanent link">&para;</a></h2>
+<p>One of the fundamental requirements of Unit Test is <strong>isolation</strong>. In general, isolation is hard (if not impposible) as there are always dependencies across the whole project.</p>
+<p>Therefore, the concept of <code>Test Doubles</code> was born. A <code>Test Double</code> allows us to break the original dependency, helping isolate the unit.</p>
+<p>Here are some types of <code>Test Doubles</code></p>
+<p><strong><em>Some parts of following definitions are taken from Martin Fowler's Blog <a href="https://martinfowler.com/articles/mocksArentStubs.html">Mocks Aren't Stubs</a></em></strong></p>
+<h3 id="dummies">Dummies<a class="headerlink" href="#dummies" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dummy objects are passed around but never actually used. Usually they are just used to fill parameter lists.</li>
+</ul>
+<h3 id="fake">Fake<a class="headerlink" href="#fake" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fake objects actually have working implementations, but usually take some shortcut which makes them not suitable for production (an in memory database is a good example).</li>
+</ul>
+<h3 id="stubs">Stubs<a class="headerlink" href="#stubs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Stubs provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test.</li>
+</ul>
+<h3 id="mocks">Mocks<a class="headerlink" href="#mocks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Mocks are objects pre-programmed with expectations which form a specification of the calls they are expected to receive.</li>
+</ul>
+<h3 id="stubs-vs-mocks">Stubs vs Mocks<a class="headerlink" href="#stubs-vs-mocks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Stub helps us to run test. Otherwise, Mock is an object which runs the test.</li>
+<li>A Fake which you verify calls against is a Mock. Otherwise, it's a Stub.</li>
+<li>Stub can never fail the test. Otherwise, Mock can.</li>
+</ul>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Here are some PHP Mocking Frameworks that you can use to easily create Mocks for testing:<ul>
+<li>Mockery: It is highly recommended. It has been already integrated with Laravel Project. Document <a href="http://docs.mockery.io/">here</a></li>
+<li>Prophecy: A part of PHPSpec project, but can be used outside PHPSpec. Check it <a href="https://github.com/phpspec/prophecy">here</a></li>
+</ul>
+</li>
+<li>Examples of creating Stubs and Mocks using <strong>Mockery</strong></li>
+</ul>
+<p>// TODO</p>
                 
               
               
@@ -987,7 +1078,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../01-why/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../Introduction/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -996,19 +1087,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Viết test để làm gì?
+              Introduction to Laravel Testing
             </div>
           </div>
         </a>
       
       
-        <a href="../03-phpunit/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../Integration/Integration/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              PHPUnit
+              Integration Tests
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1036,10 +1127,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
       
     
   </body>
